@@ -1,5 +1,4 @@
 
-setwd("C:/Users/UNC/Desktop/R_Coursera")
 
 #1. Downloads the data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 Download_data <- function(url, directory, filename){
@@ -13,17 +12,17 @@ Download_data <- function(url, directory, filename){
 }
 
 Download_data("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", 
-         "C:/Users/UNC/Desktop/R_Coursera/assignment5","DataSet.zip")
+         directory,filename")
 
 #2. Importing the data  
-train_data <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/train/x_train.txt", sep="", header=FALSE )
-train_id <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/train/subject_train.txt", sep= "", header = FALSE)
-train_labels <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/train/y_train.txt", header = FALSE)
-test_data <- read.table("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/test/x_test.txt",  sep= "", header = FALSE)
-test_id <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/test/subject_test.txt", header = FALSE)
-test_labels <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/test/y_test.txt", header = FALSE)
-activity_labels <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/activity_labels.txt", header = FALSE, sep = " ")
-features <- read.csv("C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/UCI HAR Dataset/features.txt", header = FALSE, sep = "", colClasses = c("character"))
+train_data <- read.csv("~/UCI HAR Dataset/train/x_train.txt", sep="", header=FALSE )
+train_id <- read.csv("~/UCI HAR Dataset/train/subject_train.txt", sep= "", header = FALSE)
+train_labels <- read.csv("~/UCI HAR Dataset/train/y_train.txt", header = FALSE)
+test_data <- read.table("~/UCI HAR Dataset/test/x_test.txt",  sep= "", header = FALSE)
+test_id <- read.csv("~/UCI HAR Dataset/test/subject_test.txt", header = FALSE)
+test_labels <- read.csv("~/UCI HAR Dataset/test/y_test.txt", header = FALSE)
+activity_labels <- read.csv("~/UCI HAR Dataset/activity_labels.txt", header = FALSE, sep = " ")
+features <- read.csv("~/UCI HAR Dataset/features.txt", header = FALSE, sep = "", colClasses = c("character"))
 
 #3. merger data in one set
 train <- cbind(train_id, train_labels, train_data)
@@ -66,6 +65,6 @@ finalDB<- FUN_calc_mean(DB)
 colnames(activity_labels) <- c("activityid", "activity")
 tidydataset <- merge(activity_labels , finalDB, by.x = 1, by.y = 2, sort = FALSE)
 tidy <- tidydataset[-c(1)] 
-write.csv(tidy, "C:/Users/UNC/Desktop/R_Coursera/Assignment Week 4/tidy_dataset.csv")
+write.csv(tidy, "~/tidy_dataset.csv")
 
 
