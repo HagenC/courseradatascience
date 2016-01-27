@@ -12,7 +12,7 @@ Download_data <- function(url, directory, filename){
 }
 
 Download_data("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", 
-         directory,filename")
+         directory,filename)
 
 #2. Importing the data  
 train_data <- read.csv("~/UCI HAR Dataset/train/x_train.txt", sep="", header=FALSE )
