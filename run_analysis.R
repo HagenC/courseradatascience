@@ -65,6 +65,6 @@ finalDB<- FUN_calc_mean(DB)
 colnames(activity_labels) <- c("activityid", "activity")
 tidydataset <- merge(activity_labels , finalDB, by.x = 1, by.y = 2, sort = FALSE)
 tidy <- tidydataset[-c(1)] 
-write.csv(tidy, "~/tidy_dataset.csv")
+write.table(tidy, "~/tidy_dataset", row.names = FALSE)
 
 
